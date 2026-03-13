@@ -9,11 +9,11 @@ import Settings from '../pages/Settings'
 import Banner from './Banner'
 
 const NAV = [
-  { id: 'add', icon: '✦', label: 'Add Word' },
-  { id: 'review', icon: '☀', label: 'Daily Review' },
-  { id: 'quiz', icon: '◈', label: 'Evening Quiz' },
-  { id: 'words', icon: '📖', label: 'My Words' },
-  { id: 'stats', icon: '◉', label: 'Progress' },
+  { id: 'add',      icon: '✦', label: 'Add Word' },
+  { id: 'review',   icon: '☀', label: 'Daily Review' },
+  { id: 'quiz',     icon: '◈', label: 'Evening Quiz' },
+  { id: 'words',    icon: '📖', label: 'My Words' },
+  { id: 'stats',    icon: '◉', label: 'Progress' },
   { id: 'settings', icon: '⚙', label: 'Settings' },
 ]
 
@@ -29,7 +29,8 @@ export default function Layout() {
       <aside style={{
         width: 220,
         minHeight: '100vh',
-        background: 'var(--ink)',
+        background: '#0B0E18',
+        borderRight: '1px solid rgba(255,255,255,0.06)',
         display: 'flex',
         flexDirection: 'column',
         padding: '32px 0 24px',
@@ -38,11 +39,23 @@ export default function Layout() {
         zIndex: 100,
       }}>
         {/* Logo */}
-        <div style={{ padding: '0 24px 32px', borderBottom: '1px solid rgba(245,236,215,0.1)' }}>
-          <div style={{ fontFamily: 'Playfair Display, serif', fontSize: 28, fontStyle: 'italic', color: 'var(--parchment)', letterSpacing: '-0.5px' }}>
+        <div style={{ padding: '0 24px 32px', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+          <div style={{
+            fontFamily: 'Playfair Display, serif',
+            fontSize: 28, fontStyle: 'italic',
+            color: '#E8EAF0',
+            letterSpacing: '-0.5px',
+          }}>
             Vocab
           </div>
-          <div style={{ fontSize: 11, color: 'rgba(245,236,215,0.45)', marginTop: 4, letterSpacing: '0.12em', textTransform: 'uppercase', fontFamily: 'DM Sans, sans-serif' }}>
+          <div style={{
+            fontSize: 11,
+            color: 'rgba(138,146,168,0.6)',
+            marginTop: 4,
+            letterSpacing: '0.12em',
+            textTransform: 'uppercase',
+            fontFamily: 'DM Sans, sans-serif',
+          }}>
             Vocabulary Garden
           </div>
         </div>
@@ -59,24 +72,28 @@ export default function Layout() {
                 style={{
                   display: 'flex', alignItems: 'center', gap: 12,
                   width: '100%', padding: '11px 14px',
-                  background: isActive ? 'rgba(245,236,215,0.12)' : 'transparent',
-                  border: isActive ? '1px solid rgba(245,236,215,0.15)' : '1px solid transparent',
+                  background: isActive ? 'rgba(232,168,74,0.1)' : 'transparent',
+                  border: isActive ? '1px solid rgba(232,168,74,0.2)' : '1px solid transparent',
                   borderRadius: 8, cursor: 'pointer',
-                  color: isActive ? 'var(--parchment)' : 'rgba(245,236,215,0.55)',
+                  color: isActive ? '#E8A84A' : 'rgba(138,146,168,0.8)',
                   fontFamily: 'DM Sans, sans-serif',
-                  fontSize: 14, fontWeight: isActive ? 500 : 400,
+                  fontSize: 14,
+                  fontWeight: isActive ? 500 : 400,
                   marginBottom: 4,
-                  transition: 'all 0.2s',
+                  transition: 'all 0.18s',
                   position: 'relative',
                 }}
+                onMouseEnter={e => { if (!isActive) e.currentTarget.style.background = 'rgba(255,255,255,0.04)' }}
+                onMouseLeave={e => { if (!isActive) e.currentTarget.style.background = 'transparent' }}
               >
-                <span style={{ fontSize: 14, opacity: isActive ? 1 : 0.7 }}>{item.icon}</span>
+                <span style={{ fontSize: 13, opacity: isActive ? 1 : 0.6 }}>{item.icon}</span>
                 {item.label}
                 {hasBadge && (
                   <span style={{
                     position: 'absolute', right: 12,
                     width: 7, height: 7, borderRadius: '50%',
-                    background: 'var(--rust)', animation: 'pulse 1.5s ease-in-out infinite',
+                    background: '#F06A6A',
+                    animation: 'pulse 1.5s ease-in-out infinite',
                   }} />
                 )}
               </button>
@@ -84,9 +101,18 @@ export default function Layout() {
           })}
         </nav>
 
-        {/* Bottom note */}
+        {/* API key warning */}
         {!settings.apiKey && (
-          <div style={{ margin: '0 12px', padding: '12px', background: 'rgba(196,98,45,0.2)', borderRadius: 8, fontSize: 12, color: 'rgba(245,236,215,0.7)', lineHeight: 1.5 }}>
+          <div style={{
+            margin: '0 12px',
+            padding: '12px',
+            background: 'rgba(240,106,106,0.1)',
+            border: '1px solid rgba(240,106,106,0.2)',
+            borderRadius: 8,
+            fontSize: 12,
+            color: 'rgba(240,106,106,0.9)',
+            lineHeight: 1.5,
+          }}>
             ⚠ Set your Groq API key in Settings to get started.
           </div>
         )}

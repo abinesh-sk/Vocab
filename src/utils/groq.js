@@ -1,21 +1,25 @@
 const GROQ_API_URL = 'https://api.groq.com/openai/v1/chat/completions'
 
 export async function fetchWordDefinition(word, apiKey) {
-  const prompt = `You are a sophisticated vocabulary teacher. Analyze the word "${word}" and respond with ONLY a valid JSON object (no markdown, no extra text) in exactly this format:
+  const prompt = `You are a friendly vocabulary coach helping someone build their English vocabulary through reading. They just want to understand words clearly and use them confidently in daily conversation. NOT a language expert — a regular person.
+
+Analyze the word "${word}" and respond with ONLY a valid JSON object (no markdown, no extra text) in exactly this format:
 
 {
   "word": "${word}",
   "pronunciation": "phonetic pronunciation e.g. /prəˌnʌnsiˈeɪʃən/",
   "partOfSpeech": "noun/verb/adjective/adverb/etc",
-  "definition": "Clear, concise definition in 1-2 sentences",
-  "meaning": "Deeper meaning or nuance, what the word truly conveys",
-  "whenToUse": "Specific contexts and situations where this word fits naturally — be practical and specific",
-  "example": "A vivid, realistic example sentence using this word in everyday conversation",
-  "conversationalTip": "A short tip on how to naturally slip this word into daily conversation without sounding unnatural",
+  "definition": "Explain this word like you are texting a friend who asked what it means. Super simple, plain English, short sentences. No dictionary language. If you can compare it to something familiar, do it.",
+  "meaning": "In 1-2 casual sentences, explain the vibe or feeling of the word — what situation or emotion does it capture that simpler words miss?",
+  "whenToUse": "Give 2-3 very specific everyday situations where someone would naturally say this word. Think real conversations, not textbook examples.",
+  "example": "One sentence a real person might actually say to a friend or colleague using this word naturally.",
+  "conversationalTip": "One short practical tip for using this word in conversation without sounding like you are showing off.",
   "synonyms": ["synonym1", "synonym2", "synonym3"],
   "difficulty": "beginner/intermediate/advanced",
-  "origin": "Brief etymology if interesting, otherwise empty string"
-}`
+  "origin": "One fun sentence about where this word comes from, only if it helps remember the meaning. Otherwise empty string."
+}
+
+IMPORTANT: Write everything as if explaining to a smart friend, not writing a dictionary. Never use words like denotes, pertaining to, characterized by, or refers to. Keep it warm and human.`
 
   const response = await fetch(GROQ_API_URL, {
     method: 'POST',

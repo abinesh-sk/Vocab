@@ -61,7 +61,7 @@ export default function Settings() {
     <div>
       <div style={{ marginBottom: 36 }}>
         <h1 style={{ fontSize: 40, fontStyle: 'italic', letterSpacing: '-1px', marginBottom: 8 }}>Settings</h1>
-        <p style={{ fontSize: 15, color: 'var(--ink-light)', fontFamily: 'Lora, serif', lineHeight: 1.6 }}>
+        <p style={{ fontSize: 15, color: 'var(--text-muted)', fontFamily: 'Lora, serif', lineHeight: 1.6 }}>
           Configure your vocabulary garden.
         </p>
       </div>
@@ -69,9 +69,9 @@ export default function Settings() {
       {/* API Key */}
       <div className="paper-card-raised" style={{ padding: 28, marginBottom: 20 }}>
         <h2 style={{ fontSize: 20, fontStyle: 'italic', marginBottom: 6 }}>Groq API Key</h2>
-        <p style={{ fontSize: 13.5, color: 'var(--ink-light)', marginBottom: 18, lineHeight: 1.6, fontFamily: 'Lora, serif' }}>
+        <p style={{ fontSize: 13.5, color: 'var(--text-muted)', marginBottom: 18, lineHeight: 1.6, fontFamily: 'Lora, serif' }}>
           Vocab uses the Groq API to fetch word definitions, usage examples, and generate quizzes. 
-          Get your free key at <a href="https://console.groq.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--brown)', textDecoration: 'underline' }}>console.groq.com</a>.
+          Get your free key at <a href="https://console.groq.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--amber)', textDecoration: 'underline' }}>console.groq.com</a>.
         </p>
         <div style={{ display: 'flex', gap: 10 }}>
           <div style={{ position: 'relative', flex: 1 }}>
@@ -85,7 +85,7 @@ export default function Settings() {
             />
             <button
               onClick={() => setShowKey(v => !v)}
-              style={{ position: 'absolute', right: 12, top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', cursor: 'pointer', color: 'var(--brown-light)', fontSize: 16 }}
+              style={{ position: 'absolute', right: 12, top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', cursor: 'pointer', color: 'rgba(232,168,74,0.7)', fontSize: 16 }}
             >
               {showKey ? '🙈' : '👁'}
             </button>
@@ -95,14 +95,14 @@ export default function Settings() {
           </button>
         </div>
         {settings.apiKey && (
-          <div style={{ marginTop: 10, display: 'flex', alignItems: 'center', gap: 6, fontSize: 12.5, color: 'var(--sage)' }}>
+          <div style={{ marginTop: 10, display: 'flex', alignItems: 'center', gap: 6, fontSize: 12.5, color: 'var(--teal)' }}>
             <span>✓</span> API key is set and active
           </div>
         )}
       </div>
 
       {/* How it works */}
-      <div className="paper-card" style={{ padding: '20px 24px', marginBottom: 20, background: 'rgba(122,140,110,0.07)', border: '1px solid rgba(122,140,110,0.2)' }}>
+      <div className="paper-card" style={{ padding: '20px 24px', marginBottom: 20, background: 'rgba(122,140,110,0.07)', border: '1px solid rgba(78,205,196,0.2)' }}>
         <h3 style={{ fontSize: 16, fontStyle: 'italic', marginBottom: 12 }}>How Vocab Works</h3>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
           {[
@@ -114,7 +114,7 @@ export default function Settings() {
           ].map(({ step, text }) => (
             <div key={step} style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
               <div style={{ width: 22, height: 22, borderRadius: '50%', background: 'var(--brown)', color: 'var(--parchment)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 11, fontWeight: 700, flexShrink: 0, marginTop: 1 }}>{step}</div>
-              <p style={{ fontSize: 13.5, color: 'var(--ink-light)', lineHeight: 1.6 }}>{text}</p>
+              <p style={{ fontSize: 13.5, color: 'var(--text-muted)', lineHeight: 1.6 }}>{text}</p>
             </div>
           ))}
         </div>
@@ -123,7 +123,7 @@ export default function Settings() {
       {/* Data */}
       <div className="paper-card-raised" style={{ padding: 28, marginBottom: 20 }}>
         <h2 style={{ fontSize: 20, fontStyle: 'italic', marginBottom: 6 }}>Your Data</h2>
-        <p style={{ fontSize: 13.5, color: 'var(--ink-light)', marginBottom: 20, lineHeight: 1.6, fontFamily: 'Lora, serif' }}>
+        <p style={{ fontSize: 13.5, color: 'var(--text-muted)', marginBottom: 20, lineHeight: 1.6, fontFamily: 'Lora, serif' }}>
           All words are stored locally in your browser. Export to back up, or import to restore.
         </p>
         <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
@@ -138,17 +138,17 @@ export default function Settings() {
       </div>
 
       {/* Danger zone */}
-      <div className="paper-card" style={{ padding: '20px 24px', border: '1px solid rgba(196,98,45,0.25)' }}>
+      <div className="paper-card" style={{ padding: '20px 24px', border: '1px solid rgba(240,106,106,0.25)' }}>
         <h3 style={{ fontSize: 16, fontStyle: 'italic', color: 'var(--rust)', marginBottom: 8 }}>Danger Zone</h3>
-        <p style={{ fontSize: 13, color: 'var(--ink-light)', marginBottom: 14, fontFamily: 'Lora, serif' }}>Permanently delete all your words and progress. This cannot be undone.</p>
-        <button className="btn btn-sm" onClick={handleClearAll} style={{ background: 'rgba(196,98,45,0.1)', color: 'var(--rust)', border: '1px solid rgba(196,98,45,0.3)' }}>
+        <p style={{ fontSize: 13, color: 'var(--text-muted)', marginBottom: 14, fontFamily: 'Lora, serif' }}>Permanently delete all your words and progress. This cannot be undone.</p>
+        <button className="btn btn-sm" onClick={handleClearAll} style={{ background: 'rgba(240,106,106,0.1)', color: 'var(--rust)', border: '1px solid rgba(196,98,45,0.3)' }}>
           Clear All Words
         </button>
       </div>
 
       {/* About */}
-      <div style={{ marginTop: 32, padding: '16px 0', borderTop: '1px solid rgba(139,94,60,0.15)', fontSize: 12.5, color: 'rgba(44,24,16,0.4)', lineHeight: 1.7 }}>
-        <strong style={{ fontFamily: 'Playfair Display, serif', fontSize: 14, color: 'var(--brown-light)', fontStyle: 'italic' }}>Vocab</strong> — Your Personal Vocabulary Garden<br />
+      <div style={{ marginTop: 32, padding: '16px 0', borderTop: '1px solid var(--border)', fontSize: 12.5, color: 'var(--text-dim)', lineHeight: 1.7 }}>
+        <strong style={{ fontFamily: 'Playfair Display, serif', fontSize: 14, color: 'rgba(232,168,74,0.7)', fontStyle: 'italic' }}>Vocab</strong> — Your Personal Vocabulary Garden<br />
         Built with React + Vite · Powered by Groq AI · Data stored locally in your browser
       </div>
     </div>

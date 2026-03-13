@@ -7,8 +7,8 @@ export default function Banner() {
   if (showReviewPrompt) {
     return (
       <div style={{
-        background: 'linear-gradient(135deg, var(--brown) 0%, var(--rust) 100%)',
-        color: 'var(--parchment)',
+        background: 'linear-gradient(135deg, #1A2A1A 0%, #2A1A10 100%)',
+        color: 'var(--text)',
         padding: '14px 48px',
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
         gap: 16,
@@ -22,7 +22,7 @@ export default function Banner() {
         </div>
         <div style={{ display: 'flex', gap: 8 }}>
           <button className="btn btn-sm" onClick={startDailyReview}
-            style={{ background: 'rgba(255,255,255,0.2)', color: 'var(--parchment)', border: '1px solid rgba(255,255,255,0.3)' }}>
+            style={{ background: 'rgba(255,255,255,0.2)', color: 'var(--text)', border: '1px solid rgba(255,255,255,0.3)' }}>
             Start Review →
           </button>
           <button onClick={() => setShowReviewPrompt(false)}
@@ -35,8 +35,8 @@ export default function Banner() {
   if (showQuizPrompt) {
     return (
       <div style={{
-        background: 'linear-gradient(135deg, #3D2B1F 0%, var(--brown-dark) 100%)',
-        color: 'var(--parchment)',
+        background: 'linear-gradient(135deg, #12121E 0%, #1A1A2E 100%)',
+        color: 'var(--text)',
         padding: '14px 48px',
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
         gap: 16,
@@ -50,7 +50,7 @@ export default function Banner() {
         </div>
         <div style={{ display: 'flex', gap: 8 }}>
           <button className="btn btn-sm" onClick={() => { setActiveTab('quiz'); setShowQuizPrompt(false) }}
-            style={{ background: 'rgba(255,255,255,0.2)', color: 'var(--parchment)', border: '1px solid rgba(255,255,255,0.3)' }}>
+            style={{ background: 'rgba(255,255,255,0.2)', color: 'var(--text)', border: '1px solid rgba(255,255,255,0.3)' }}>
             Take Quiz →
           </button>
           <button onClick={() => setShowQuizPrompt(false)}

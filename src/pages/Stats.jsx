@@ -42,7 +42,7 @@ export default function Stats() {
     <div>
       <div style={{ marginBottom: 36 }}>
         <h1 style={{ fontSize: 40, fontStyle: 'italic', letterSpacing: '-1px', marginBottom: 8 }}>Your Progress</h1>
-        <p style={{ fontSize: 15, color: 'var(--ink-light)', fontFamily: 'Lora, serif' }}>
+        <p style={{ fontSize: 15, color: 'var(--text-muted)', fontFamily: 'Lora, serif' }}>
           Track how your vocabulary garden grows over time.
         </p>
       </div>
@@ -54,24 +54,24 @@ export default function Stats() {
           <div style={{ fontFamily: 'Playfair Display, serif', fontSize: 48, fontWeight: 700, color: 'var(--rust)', lineHeight: 1 }}>
             {streak} <span style={{ fontSize: 20, color: 'var(--rust)', fontStyle: 'italic' }}>day{streak !== 1 ? 's' : ''}</span>
           </div>
-          <div style={{ fontSize: 14, color: 'var(--ink-light)', marginTop: 4 }}>Current streak — keep adding words daily!</div>
+          <div style={{ fontSize: 14, color: 'var(--text-muted)', marginTop: 4 }}>Current streak — keep adding words daily!</div>
         </div>
       </div>
 
       {/* Main stats grid */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 14, marginBottom: 28 }}>
         {[
-          { label: 'Total Words', value: stats.total || 0, icon: '📚', color: 'var(--brown)' },
-          { label: 'This Week', value: stats.weekCount || 0, icon: '📅', color: 'var(--sage)' },
-          { label: 'This Month', value: stats.monthCount || 0, icon: '🗓', color: 'var(--rust)' },
-          { label: 'Today', value: stats.todayCount || 0, icon: '⭐', color: 'var(--gold)' },
-          { label: 'Learned', value: stats.learned || 0, icon: '✓', color: 'var(--sage)' },
-          { label: 'Reviewing', value: stats.reviewing || 0, icon: '◈', color: 'var(--brown-light)' },
+          { label: 'Total Words', value: stats.total || 0, icon: '📚', color: 'var(--amber)' },
+          { label: 'This Week', value: stats.weekCount || 0, icon: '📅', color: 'var(--teal)' },
+          { label: 'This Month', value: stats.monthCount || 0, icon: '🗓', color: 'var(--rose)' },
+          { label: 'Today', value: stats.todayCount || 0, icon: '⭐', color: 'var(--amber)' },
+          { label: 'Learned', value: stats.learned || 0, icon: '✓', color: 'var(--teal)' },
+          { label: 'Reviewing', value: stats.reviewing || 0, icon: '◈', color: 'rgba(232,168,74,0.7)' },
         ].map(({ label, value, icon, color }) => (
           <div key={label} className="paper-card" style={{ padding: '20px 22px' }}>
             <div style={{ fontSize: 22, marginBottom: 8 }}>{icon}</div>
             <div style={{ fontFamily: 'Playfair Display, serif', fontSize: 32, fontWeight: 700, color, lineHeight: 1 }}>{value}</div>
-            <div style={{ fontSize: 12, color: 'var(--ink-light)', marginTop: 4 }}>{label}</div>
+            <div style={{ fontSize: 12, color: 'var(--text-muted)', marginTop: 4 }}>{label}</div>
           </div>
         ))}
       </div>
@@ -82,14 +82,14 @@ export default function Stats() {
         {stats.total > 0 ? (
           <div>
             {[
-              { label: 'New', count: stats.new || 0, color: 'var(--gold)', bg: 'rgba(201,149,42,0.18)' },
-              { label: 'Reviewing', count: stats.reviewing || 0, color: 'var(--brown)', bg: 'rgba(139,94,60,0.15)' },
-              { label: 'Learned', count: stats.learned || 0, color: 'var(--sage)', bg: 'rgba(122,140,110,0.18)' },
+              { label: 'New', count: stats.new || 0, color: 'var(--amber)', bg: 'rgba(232,168,74,0.1)' },
+              { label: 'Reviewing', count: stats.reviewing || 0, color: 'var(--amber)', bg: 'rgba(139,94,60,0.15)' },
+              { label: 'Learned', count: stats.learned || 0, color: 'var(--teal)', bg: 'rgba(122,140,110,0.18)' },
             ].map(({ label, count, color, bg }) => (
               <div key={label} style={{ marginBottom: 12 }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 6 }}>
                   <span style={{ fontSize: 13, fontWeight: 500, color }}>{label}</span>
-                  <span style={{ fontSize: 13, color: 'var(--ink-light)' }}>{count} ({stats.total ? Math.round(count / stats.total * 100) : 0}%)</span>
+                  <span style={{ fontSize: 13, color: 'var(--text-muted)' }}>{count} ({stats.total ? Math.round(count / stats.total * 100) : 0}%)</span>
                 </div>
                 <div className="progress-bar">
                   <div className="progress-fill" style={{ width: `${stats.total ? (count / stats.total * 100) : 0}%`, background: color }} />
@@ -98,7 +98,7 @@ export default function Stats() {
             ))}
           </div>
         ) : (
-          <p style={{ color: 'var(--ink-light)', fontStyle: 'italic', fontFamily: 'Lora, serif', fontSize: 14 }}>Add some words to see your progress!</p>
+          <p style={{ color: 'var(--text-muted)', fontStyle: 'italic', fontFamily: 'Lora, serif', fontSize: 14 }}>Add some words to see your progress!</p>
         )}
       </div>
 
@@ -108,7 +108,7 @@ export default function Stats() {
         <div style={{ display: 'flex', alignItems: 'flex-end', gap: 8, height: 120 }}>
           {history.map((day) => (
             <div key={day.date} style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6 }}>
-              <div style={{ fontSize: 11, color: 'var(--brown)', fontWeight: 600, visibility: day.count > 0 ? 'visible' : 'hidden' }}>
+              <div style={{ fontSize: 11, color: 'var(--amber)', fontWeight: 600, visibility: day.count > 0 ? 'visible' : 'hidden' }}>
                 {day.count}
               </div>
               <div
@@ -116,13 +116,13 @@ export default function Stats() {
                   width: '100%', minHeight: 4,
                   height: day.count > 0 ? `${(day.count / maxCount) * 90}px` : '4px',
                   background: day.date === new Date().toDateString()
-                    ? 'linear-gradient(180deg, var(--rust), var(--brown))'
-                    : day.count > 0 ? 'var(--brown-light)' : 'rgba(139,94,60,0.12)',
+                    ? 'linear-gradient(180deg, var(--amber), var(--teal))'
+                    : day.count > 0 ? 'var(--amber)' : 'rgba(255,255,255,0.05)',
                   borderRadius: '4px 4px 0 0',
                   transition: 'height 0.4s ease',
                 }}
               />
-              <div style={{ fontSize: 11, color: 'var(--ink-light)', whiteSpace: 'nowrap' }}>{day.label}</div>
+              <div style={{ fontSize: 11, color: 'var(--text-muted)', whiteSpace: 'nowrap' }}>{day.label}</div>
             </div>
           ))}
         </div>
@@ -134,12 +134,12 @@ export default function Stats() {
           <div style={{ fontFamily: 'Playfair Display, serif', fontSize: 17, fontWeight: 600, marginBottom: 16, fontStyle: 'italic' }}>Word Types</div>
           {partOfSpeechMap.map(([pos, count]) => (
             <div key={pos} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
-              <span style={{ fontSize: 14, textTransform: 'capitalize', color: 'var(--ink-light)' }}>{pos}</span>
+              <span style={{ fontSize: 14, textTransform: 'capitalize', color: 'var(--text-muted)' }}>{pos}</span>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                <div style={{ width: 120, height: 6, borderRadius: 3, background: 'rgba(139,94,60,0.12)', overflow: 'hidden' }}>
+                <div style={{ width: 120, height: 6, borderRadius: 3, background: 'rgba(232,168,74,0.1)', overflow: 'hidden' }}>
                   <div style={{ height: '100%', width: `${(count / words.length) * 100}%`, background: 'var(--brown-light)', borderRadius: 3 }} />
                 </div>
-                <span style={{ fontSize: 13, color: 'var(--brown)', fontWeight: 600, minWidth: 20, textAlign: 'right' }}>{count}</span>
+                <span style={{ fontSize: 13, color: 'var(--amber)', fontWeight: 600, minWidth: 20, textAlign: 'right' }}>{count}</span>
               </div>
             </div>
           ))}
@@ -152,13 +152,13 @@ export default function Stats() {
           <div style={{ fontFamily: 'Playfair Display, serif', fontSize: 17, fontWeight: 600, marginBottom: 16, fontStyle: 'italic' }}>Difficulty Mix</div>
           <div style={{ display: 'flex', gap: 12 }}>
             {[
-              { k: 'beginner', label: 'Beginner', color: 'var(--sage)' },
-              { k: 'intermediate', label: 'Intermediate', color: 'var(--gold)' },
-              { k: 'advanced', label: 'Advanced', color: 'var(--rust)' },
+              { k: 'beginner', label: 'Beginner', color: 'var(--teal)' },
+              { k: 'intermediate', label: 'Intermediate', color: 'var(--amber)' },
+              { k: 'advanced', label: 'Advanced', color: 'var(--rose)' },
             ].map(({ k, label, color }) => (
               <div key={k} style={{ flex: 1, textAlign: 'center', padding: '16px', background: `${color}12`, borderRadius: 10, border: `1px solid ${color}30` }}>
                 <div style={{ fontFamily: 'Playfair Display, serif', fontSize: 28, fontWeight: 700, color }}>{difficultyMap[k]}</div>
-                <div style={{ fontSize: 12, color: 'var(--ink-light)', marginTop: 4 }}>{label}</div>
+                <div style={{ fontSize: 12, color: 'var(--text-muted)', marginTop: 4 }}>{label}</div>
               </div>
             ))}
           </div>

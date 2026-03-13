@@ -31,7 +31,7 @@ export default function DailyReview() {
       <div>
         <div style={{ marginBottom: 36 }}>
           <h1 style={{ fontSize: 40, fontStyle: 'italic', letterSpacing: '-1px', marginBottom: 8 }}>Daily Review</h1>
-          <p style={{ fontSize: 15, color: 'var(--ink-light)', fontFamily: 'Lora, serif', lineHeight: 1.6 }}>
+          <p style={{ fontSize: 15, color: 'var(--text-muted)', fontFamily: 'Lora, serif', lineHeight: 1.6 }}>
             Three words a day keeps forgetting at bay.
           </p>
         </div>
@@ -39,7 +39,7 @@ export default function DailyReview() {
         <div className="paper-card-raised" style={{ padding: 40, textAlign: 'center', maxWidth: 480 }}>
           <div style={{ fontSize: 48, marginBottom: 20 }}>☀️</div>
           <h2 style={{ fontStyle: 'italic', marginBottom: 12 }}>Start Today's Review</h2>
-          <p style={{ fontSize: 14, color: 'var(--ink-light)', lineHeight: 1.7, marginBottom: 28, fontFamily: 'Lora, serif' }}>
+          <p style={{ fontSize: 14, color: 'var(--text-muted)', lineHeight: 1.7, marginBottom: 28, fontFamily: 'Lora, serif' }}>
             {unlearnedCount > 0
               ? `You have ${unlearnedCount} word${unlearnedCount !== 1 ? 's' : ''} waiting to be reviewed. We'll pick 3 for you today.`
               : 'Add some words first, then come back to review them!'}
@@ -55,11 +55,11 @@ export default function DailyReview() {
           )}
         </div>
 
-        <div style={{ marginTop: 32, padding: '20px 24px', background: 'rgba(122,140,110,0.08)', borderRadius: 10, border: '1px solid rgba(122,140,110,0.2)', maxWidth: 480 }}>
-          <div style={{ fontFamily: 'Playfair Display, serif', fontSize: 15, fontWeight: 600, marginBottom: 8, color: 'var(--sage)' }}>
+        <div style={{ marginTop: 32, padding: '20px 24px', background: 'rgba(78,205,196,0.07)', borderRadius: 10, border: '1px solid rgba(78,205,196,0.2)', maxWidth: 480 }}>
+          <div style={{ fontFamily: 'Playfair Display, serif', fontSize: 15, fontWeight: 600, marginBottom: 8, color: 'var(--teal)' }}>
             💡 Why 3 words a day?
           </div>
-          <p style={{ fontSize: 13.5, color: 'var(--ink-light)', lineHeight: 1.7 }}>
+          <p style={{ fontSize: 13.5, color: 'var(--text-muted)', lineHeight: 1.7 }}>
             Research shows that reviewing small batches of vocabulary daily is far more effective than cramming. Three words is the sweet spot — enough to make progress, not enough to overwhelm.
           </p>
         </div>
@@ -73,7 +73,7 @@ export default function DailyReview() {
     <div>
       <div style={{ marginBottom: 32 }}>
         <h1 style={{ fontSize: 40, fontStyle: 'italic', letterSpacing: '-1px', marginBottom: 8 }}>Today's 3 Words</h1>
-        <p style={{ fontSize: 15, color: 'var(--ink-light)', fontFamily: 'Lora, serif' }}>
+        <p style={{ fontSize: 15, color: 'var(--text-muted)', fontFamily: 'Lora, serif' }}>
           {new Date().toLocaleDateString('en', { weekday: 'long', month: 'long', day: 'numeric' })}
         </p>
       </div>
@@ -95,7 +95,7 @@ export default function DailyReview() {
             <WordCard word={w} />
             <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: 12 }}>
               {markedIds.has(w.id) ? (
-                <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'var(--sage)', fontSize: 13, fontWeight: 500 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'var(--teal)', fontSize: 13, fontWeight: 500 }}>
                   <span>✓</span> Reviewed today
                 </div>
               ) : (
@@ -109,20 +109,20 @@ export default function DailyReview() {
       </div>
 
       {allReviewed && (
-        <div style={{ marginTop: 32, padding: '24px', background: 'rgba(122,140,110,0.1)', borderRadius: 12, border: '1px solid rgba(122,140,110,0.25)', textAlign: 'center', animation: 'fadeIn 0.5s ease' }}>
+        <div style={{ marginTop: 32, padding: '24px', background: 'rgba(78,205,196,0.08)', borderRadius: 12, border: '1px solid rgba(78,205,196,0.22)', textAlign: 'center', animation: 'fadeIn 0.5s ease' }}>
           <div style={{ fontSize: 32, marginBottom: 10 }}>🎉</div>
           <h3 style={{ fontStyle: 'italic', marginBottom: 8 }}>Wonderful! All 3 words reviewed!</h3>
-          <p style={{ fontSize: 14, color: 'var(--ink-light)', marginBottom: 20, fontFamily: 'Lora, serif' }}>
+          <p style={{ fontSize: 14, color: 'var(--text-muted)', marginBottom: 20, fontFamily: 'Lora, serif' }}>
             Try to use these words in a real conversation today. Come back tonight for your evening quiz!
           </p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center' }}>
-            <div style={{ padding: '12px 20px', background: 'var(--parchment)', borderRadius: 10, textAlign: 'center' }}>
-              <div style={{ fontFamily: 'Playfair Display, serif', fontSize: 22, fontWeight: 700, color: 'var(--brown)' }}>3</div>
-              <div style={{ fontSize: 11, color: 'var(--ink-light)', marginTop: 2 }}>Words Reviewed</div>
+            <div style={{ padding: '12px 20px', background: 'var(--surface)', borderRadius: 10, textAlign: 'center' }}>
+              <div style={{ fontFamily: 'Playfair Display, serif', fontSize: 22, fontWeight: 700, color: 'var(--amber)' }}>3</div>
+              <div style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 2 }}>Words Reviewed</div>
             </div>
-            <div style={{ padding: '12px 20px', background: 'var(--parchment)', borderRadius: 10, textAlign: 'center' }}>
-              <div style={{ fontFamily: 'Playfair Display, serif', fontSize: 22, fontWeight: 700, color: 'var(--sage)' }}>🌙</div>
-              <div style={{ fontSize: 11, color: 'var(--ink-light)', marginTop: 2 }}>Quiz Tonight</div>
+            <div style={{ padding: '12px 20px', background: 'var(--surface)', borderRadius: 10, textAlign: 'center' }}>
+              <div style={{ fontFamily: 'Playfair Display, serif', fontSize: 22, fontWeight: 700, color: 'var(--teal)' }}>🌙</div>
+              <div style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 2 }}>Quiz Tonight</div>
             </div>
           </div>
         </div>

@@ -53,7 +53,7 @@ export default function MyWords() {
     <div>
       <div style={{ marginBottom: 32 }}>
         <h1 style={{ fontSize: 40, fontStyle: 'italic', letterSpacing: '-1px', marginBottom: 8 }}>My Words</h1>
-        <p style={{ fontSize: 15, color: 'var(--ink-light)', fontFamily: 'Lora, serif' }}>
+        <p style={{ fontSize: 15, color: 'var(--text-muted)', fontFamily: 'Lora, serif' }}>
           {words.length} word{words.length !== 1 ? 's' : ''} in your vocabulary garden.
         </p>
       </div>
@@ -98,7 +98,7 @@ export default function MyWords() {
       </div>
 
       {filtered.length === 0 ? (
-        <div style={{ textAlign: 'center', padding: '60px 0', color: 'var(--ink-light)' }}>
+        <div style={{ textAlign: 'center', padding: '60px 0', color: 'var(--text-muted)' }}>
           <div style={{ fontSize: 40, marginBottom: 16 }}>{words.length === 0 ? '📖' : '🔍'}</div>
           <p style={{ fontFamily: 'Lora, serif', fontStyle: 'italic', fontSize: 16 }}>
             {words.length === 0 ? 'Your vocabulary garden is empty. Add your first word!' : 'No words match your search.'}

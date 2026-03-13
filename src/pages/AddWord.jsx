@@ -59,20 +59,20 @@ export default function AddWord() {
         <h1 style={{ fontSize: 40, fontStyle: 'italic', letterSpacing: '-1px', marginBottom: 8 }}>
           Add a Word
         </h1>
-        <p style={{ fontSize: 15, color: 'var(--ink-light)', fontFamily: 'Lora, serif', lineHeight: 1.6 }}>
+        <p style={{ fontSize: 15, color: 'var(--text-muted)', fontFamily: 'Lora, serif', lineHeight: 1.6 }}>
           Encountered a new word? Let's explore its meaning, usage, and help you make it yours.
         </p>
         {sessionCount > 0 && (
-          <div style={{ marginTop: 12, display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 14px', background: 'rgba(122,140,110,0.12)', borderRadius: 20, border: '1px solid rgba(122,140,110,0.25)' }}>
+          <div style={{ marginTop: 12, display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 14px', background: 'rgba(78,205,196,0.1)', borderRadius: 20, border: '1px solid rgba(78,205,196,0.22)' }}>
             <span style={{ fontSize: 14 }}>🌱</span>
-            <span style={{ fontSize: 13, color: 'var(--sage)', fontWeight: 500 }}>{sessionCount} word{sessionCount !== 1 ? 's' : ''} added this session</span>
+            <span style={{ fontSize: 13, color: 'var(--teal)', fontWeight: 500 }}>{sessionCount} word{sessionCount !== 1 ? 's' : ''} added this session</span>
           </div>
         )}
       </div>
 
       {/* Input */}
       <div className="paper-card-raised" style={{ padding: 28, marginBottom: 28 }}>
-        <label style={{ display: 'block', fontSize: 12, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--brown-light)', marginBottom: 10 }}>
+        <label style={{ display: 'block', fontSize: 12, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(232,168,74,0.7)', marginBottom: 10 }}>
           Enter a word
         </label>
         <div style={{ display: 'flex', gap: 12 }}>
@@ -95,11 +95,11 @@ export default function AddWord() {
           </button>
         </div>
         {error && (
-          <div style={{ marginTop: 12, padding: '10px 14px', background: 'rgba(196,98,45,0.1)', border: '1px solid rgba(196,98,45,0.25)', borderRadius: 8, fontSize: 13, color: 'var(--rust)' }}>
+          <div style={{ marginTop: 12, padding: '10px 14px', background: 'rgba(240,106,106,0.1)', border: '1px solid rgba(240,106,106,0.25)', borderRadius: 8, fontSize: 13, color: 'var(--rust)' }}>
             {error}
           </div>
         )}
-        <p style={{ marginTop: 10, fontSize: 12, color: 'rgba(44,24,16,0.4)' }}>
+        <p style={{ marginTop: 10, fontSize: 12, color: 'var(--text-dim)' }}>
           Press Enter or click Look Up to fetch definition, usage, and examples.
         </p>
       </div>
@@ -156,7 +156,7 @@ export default function AddWord() {
               <div key={title} className="paper-card" style={{ padding: '20px 22px' }}>
                 <div style={{ fontSize: 24, marginBottom: 10 }}>{icon}</div>
                 <div style={{ fontFamily: 'Playfair Display, serif', fontSize: 15, fontWeight: 600, marginBottom: 6 }}>{title}</div>
-                <p style={{ fontSize: 13, color: 'var(--ink-light)', lineHeight: 1.6 }}>{tip}</p>
+                <p style={{ fontSize: 13, color: 'var(--text-muted)', lineHeight: 1.6 }}>{tip}</p>
               </div>
             ))}
           </div>
