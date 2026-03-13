@@ -1,0 +1,271 @@
+:root {
+  --parchment: #F5ECD7;
+  --parchment-dark: #EDD9B8;
+  --ink: #2C1810;
+  --ink-light: #4A2F20;
+  --brown: #8B5E3C;
+  --brown-light: #A67C52;
+  --brown-dark: #6B4226;
+  --sage: #7A8C6E;
+  --sage-light: #9CAE8E;
+  --rust: #C4622D;
+  --rust-light: #D4825D;
+  --cream: #FBF5E8;
+  --gold: #C9952A;
+  --gold-light: #DDB55A;
+  --shadow: rgba(44, 24, 16, 0.12);
+  --shadow-deep: rgba(44, 24, 16, 0.25);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--cream);
+  color: var(--ink);
+  min-height: 100vh;
+  background-image: 
+    radial-gradient(ellipse at 20% 50%, rgba(139, 94, 60, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(122, 140, 110, 0.06) 0%, transparent 50%);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--parchment); }
+::-webkit-scrollbar-thumb { background: var(--brown-light); border-radius: 3px; }
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-16px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.animate-fade { animation: fadeIn 0.4s ease forwards; }
+.animate-slide { animation: slideIn 0.35s ease forwards; }
+
+/* Loading skeleton */
+.skeleton {
+  background: linear-gradient(90deg, var(--parchment) 25%, var(--parchment-dark) 50%, var(--parchment) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 6px;
+}
+
+/* Spinner */
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--parchment);
+  border-top-color: var(--brown);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  display: inline-block;
+}
+
+/* Scrollable container */
+.scroll-fade {
+  mask-image: linear-gradient(to bottom, transparent, black 5%, black 95%, transparent);
+}
+
+/* Paper texture card */
+.paper-card {
+  background: var(--parchment);
+  border-radius: 12px;
+  box-shadow: 
+    0 2px 8px var(--shadow),
+    inset 0 1px 0 rgba(255,255,255,0.6);
+  border: 1px solid rgba(139, 94, 60, 0.15);
+}
+
+.paper-card-raised {
+  background: var(--parchment);
+  border-radius: 14px;
+  box-shadow: 
+    0 4px 20px var(--shadow),
+    0 1px 4px var(--shadow),
+    inset 0 1px 0 rgba(255,255,255,0.7);
+  border: 1px solid rgba(139, 94, 60, 0.18);
+}
+
+/* Typography */
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  color: var(--ink);
+}
+
+.font-lora { font-family: 'Lora', serif; }
+.font-playfair { font-family: 'Playfair Display', serif; }
+.font-dm { font-family: 'DM Sans', sans-serif; }
+
+/* Divider */
+.divider {
+  border: none;
+  border-top: 1px solid rgba(139, 94, 60, 0.2);
+  margin: 16px 0;
+}
+
+/* Tag */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.tag-brown { background: rgba(139, 94, 60, 0.15); color: var(--brown-dark); }
+.tag-sage { background: rgba(122, 140, 110, 0.18); color: #4A5E3A; }
+.tag-rust { background: rgba(196, 98, 45, 0.15); color: var(--rust); }
+.tag-gold { background: rgba(201, 149, 42, 0.18); color: #8B6820; }
+
+/* Button base */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  outline: none;
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--brown);
+  color: var(--parchment);
+  box-shadow: 0 2px 8px rgba(139, 94, 60, 0.3);
+}
+.btn-primary:hover:not(:disabled) {
+  background: var(--brown-dark);
+  box-shadow: 0 4px 14px rgba(139, 94, 60, 0.4);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: var(--parchment);
+  color: var(--brown);
+  border: 1.5px solid rgba(139, 94, 60, 0.35);
+}
+.btn-secondary:hover:not(:disabled) {
+  background: var(--parchment-dark);
+  border-color: var(--brown);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--brown);
+}
+.btn-ghost:hover:not(:disabled) {
+  background: rgba(139, 94, 60, 0.08);
+}
+
+.btn-sm { padding: 6px 14px; font-size: 13px; }
+.btn-lg { padding: 13px 28px; font-size: 15px; }
+
+/* Input */
+.input {
+  width: 100%;
+  padding: 11px 16px;
+  border-radius: 8px;
+  border: 1.5px solid rgba(139, 94, 60, 0.25);
+  background: var(--parchment);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input::placeholder { color: rgba(74, 47, 32, 0.4); }
+.input:focus {
+  border-color: var(--brown);
+  box-shadow: 0 0 0 3px rgba(139, 94, 60, 0.12);
+}
+
+/* Word badge */
+.word-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  background: rgba(139, 94, 60, 0.1);
+  border: 1px solid rgba(139, 94, 60, 0.2);
+  border-radius: 6px;
+  font-family: 'Playfair Display', serif;
+  font-size: 13px;
+  color: var(--brown-dark);
+}
+
+/* Notification dot */
+.dot-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--rust);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Progress bar */
+.progress-bar {
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(139, 94, 60, 0.15);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--brown), var(--rust));
+  transition: width 0.6s ease;
+}
